@@ -1,5 +1,7 @@
 # Logistics Track
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 API que agrega rastreamento de múltiplas transportadoras (Correios,
 Jadlog, regionais) em um **modelo canônico de status**, mantém
 histórico de eventos e dispara **webhooks outbound** quando o status
