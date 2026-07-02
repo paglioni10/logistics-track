@@ -151,3 +151,7 @@ fallback com o LLM desligado.
 Previsão de atraso com ML, chat automatizado de status para o
 cliente final, integração com Shopify/VTEX, notificações via
 WhatsApp/SMS.
+
+## Licença
+
+[MIT](LICENSE)
