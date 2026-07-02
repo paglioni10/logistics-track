@@ -1,0 +1,10 @@
+{"version":3,"term":{"cols":80,"rows":24},"timestamp":1783024542,"command":"python -m scripts.demo","env":{"SHELL":"/bin/zsh"}}
+[0.420, "o", "========================================================================\r\nLogistics Track — demo do normalizador híbrido (regras + IA local)\r\n========================================================================\r\nIA local (Ollama) habilitada: False\r\n  -> desligada por padrão. Para ver o fallback via LLM classificando\r\n     o evento ambíguo abaixo, rode `ollama serve` e defina\r\n     LLM_NORMALIZER_ENABLED=true no .env antes de rodar este script.\r\n------------------------------------------------------------------------\r\n"]
+[0.000, "o", "  \"Objeto postado nos Correios\"\r\n    -> POSTADO  [regra]\r\n\r\n  \"Objeto em trânsito - por favor aguarde\"\r\n"]
+[0.000, "o", "    -> EM_TRANSPORTE  [regra]\r\n\r\n"]
+[0.000, "o", "  \"Objeto saiu para entrega ao destinatário\"\r\n    -> SAIU_PARA_ENTREGA  [regra]\r\n\r\n"]
+[0.000, "o", "  \"Cliente reagendou a rota de coleta com o motoboy parceiro\"\r\n    -> DESCONHECIDO  [sem match]\r\n\r\n"]
+[0.000, "o", "  \"Objeto entregue ao destinatário\"\r\n    -> ENTREGUE  [regra]\r\n\r\n"]
+[0.002, "o", "------------------------------------------------------------------------\r\nStatus final da entrega AA123456789BR: ENTREGUE\r\nDisparando webhook outbound para a assinatura de exemplo...\r\n"]
+[3.062, "o", "  -> tentativa registrada em WebhookDelivery (o POST falha aqui de propósito, já que a URL de exemplo não tem nada escutando — em uma assinatura real, o endpoint do cliente receberia o payload assinado com HMAC-SHA256 no header X-Logistics-Track-Signature).\r\n========================================================================\r\n"]
+[0.072, "x", "0"]
