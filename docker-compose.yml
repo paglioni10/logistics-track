@@ -20,5 +20,27 @@ services:
     ports:
       - "6379:6379"
 
+  # Camada de IA gratuita (opcional): serve o Ollama local, sem chave de
+  # API e sem custo por token. Fica fora do `docker compose up` padrão
+  # porque baixa ~2GB de modelo — só sobe quando o perfil "llm" é pedido:
+  #   docker compose --profile llm up -d
+  ollama:
+    image: ollama/ollama:latest
+    profiles: ["llm"]
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
+  # Serviço one-shot: baixa o modelo configurado (padrão llama3.2) assim
+  # que o Ollama sobe, para não depender de rodar `ollama pull` manualmente.
+  ollama-pull:
+    image: ollama/ollama:latest
+    profiles: ["llm"]
+    depends_on:
+      - ollama
+    entrypoint: ["sh", "-c", "sleep 3 && OLLAMA_HOST=ollama:11434 ollama pull llama3.2"]
+
 volumes:
   postgres_data:
+  ollama_data:
